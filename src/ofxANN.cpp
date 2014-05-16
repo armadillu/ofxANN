@@ -9,16 +9,16 @@
 #include "ofxANN.h"
 
 
-ofxANN::ofxANN(){
+ofxANN::ofxANN(int maxPoints, int maxResults){
     // defaults
     nDim = 3;
     eps = 0;
 	kdTree = NULL;
 	dataPoints = NULL;
 	queryPt = annAllocPt(nDim);
-	nnIdx = new ANNidx[1024];
-	dists = new ANNdist[1024];
-	dataPoints = annAllocPts(1024, nDim);
+	nnIdx = new ANNidx[maxResults];
+	dists = new ANNdist[maxResults];
+	dataPoints = annAllocPts(maxPoints, nDim); //TODO this is so ugly and will cause problems
 }
 
 void ofxANN::setEps(double anEps){

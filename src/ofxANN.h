@@ -10,7 +10,7 @@ struct AnnResult{
 
 class ofxANN {
 public:
-	ofxANN();
+	ofxANN(int maxPoints = 10000, int maxResults = 1000);
     ~ofxANN();
 
     void setEps(double anEps);

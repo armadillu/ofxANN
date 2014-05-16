@@ -3,31 +3,28 @@
 #include "ANN.h"
 #include "ofMain.h"
 
-class ofxANNNeighbor{
-public:
-    ofxANNNeighbor( ofVec3f p, double d ){
-        point = p;
-        distance = d;
-    }
-    ~ofxANNNeighbor(){}
-    ofVec3f point;
-    double distance;
+struct AnnResult{
+    ANNidxArray indexs;
+    ANNdistArray dists;
 };
 
 class ofxANN {
 public:
 	ofxANN();
     ~ofxANN();
-    
+
     void setEps(double anEps);
-    void loadPoints(vector<ofVec3f>& vertices);
-    vector<ofxANNNeighbor> getNeighbors(int k, ofVec3f p);
-    
+    void loadPoints(vector<ofVec3f*>& vertices);
+    AnnResult getNeighbors(int k, ofVec3f p);
+
 private:
     int nDim;
     double eps;
     ANNkd_tree* kdTree;
     ANNpointArray dataPoints;
+	ANNpoint queryPt;
+	ANNidxArray	nnIdx;
+	ANNdistArray dists;
 };
 
 

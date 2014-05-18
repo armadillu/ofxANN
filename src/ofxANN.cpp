@@ -30,10 +30,14 @@ void ofxANN::loadPoints(vector<ofVec3f*>& vertices){
 	for(int i = 0; i < vertices.size(); i++){
 		dataPoints[i] = &(vertices[i]->x);
 	}
+	numP = vertices.size();
+}
+
+void ofxANN::generateTree(){
 	if (kdTree != NULL){
 		delete kdTree;
 	}
-	kdTree = new ANNkd_tree(dataPoints, vertices.size(), nDim);
+	kdTree = new ANNkd_tree(dataPoints, numP, nDim);
 }
 
 

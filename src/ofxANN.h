@@ -15,6 +15,7 @@ public:
 
     void setEps(double anEps);
     void loadPoints(vector<ofVec3f*>& vertices);
+	void generateTree();
     AnnResult getNeighbors(int k, ofVec3f p);
 
 private:
@@ -25,6 +26,7 @@ private:
 	ANNpoint queryPt;
 	ANNidxArray	nnIdx;
 	ANNdistArray dists;
+	int numP;
 };
 
 

@@ -156,7 +156,7 @@ enum ANNbool {ANNfalse = 0, ANNtrue = 1}; // ANN boolean type (non ANSI C++)
 //----------------------------------------------------------------------
 
 typedef float	ANNcoord;				// coordinate data type
-typedef double	ANNdist;				// distance data type
+typedef float	ANNdist;				// distance data type
 
 //----------------------------------------------------------------------
 //	ANNidx
